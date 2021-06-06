@@ -1,10 +1,10 @@
 name: Build/release
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+    tags:
+      - '*'
 
 jobs:
   release:
@@ -59,9 +59,8 @@ jobs:
 #           API_KEY_ID: ${{ secrets.api_key_id }}
 #           API_KEY_ISSUER_ID: ${{ secrets.api_key_issuer_id }}
 
-      -
-        name: Upload assets
+      - name: Upload assets
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.event.repository.name }}
-          path: bin/release/*
+          path: release/*
