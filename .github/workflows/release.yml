@@ -63,4 +63,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ github.event.repository.name }}
-          path: release/*
+          path: |
+            release/Motrix 1.6.11 ia32 win.zip
+            release/Motrix 1.6.11 win.zip
